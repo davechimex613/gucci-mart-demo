@@ -79,7 +79,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#f4f0e7] text-[#12352b]">
       {/* NAVIGATION */}
       <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/20 bg-[#12352b]/95 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-[24px] border border-white/20 bg-[#12352b]/95 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
           <a href="#home" className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
               <img src="/media/gucci-logo.jpg" alt="Gucci Mart" className="h-full w-full object-cover" />
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
           </a>
 
-          <div className="hidden items-center gap-7 md:flex">
+          <div className="mt-3 flex w-full items-center justify-between border-t border-white/10 pt-3 md:mt-0 md:w-auto md:justify-end md:gap-7 md:border-0 md:pt-0">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -108,18 +108,10 @@ export default function Home() {
 
           <button
             onClick={openWhatsApp}
-            className="hidden items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994] md:flex"
+            className="hidden items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994] sm:flex"
           >
             <MessageCircle size={15} />
             WhatsApp
-          </button>
-
-          <button
-            onClick={() => setMenuOpen((value) => !value)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white md:hidden"
-            aria-label="Open menu"
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </nav>
 
