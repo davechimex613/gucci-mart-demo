@@ -81,8 +81,8 @@ export default function Home() {
       <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
         <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/20 bg-[#12352b]/95 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
           <a href="#home" className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e2c77d]/60 bg-[#e2c77d] text-sm font-black tracking-[-0.08em] text-[#12352b]">
-              GM
+            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
+              <img src="/media/gucci-logo.jpg" alt="Gucci Mart" className="h-full w-full object-cover" />
             </span>
             <div className="hidden sm:block">
               <p className="text-sm font-semibold tracking-[0.18em] text-[#f4f0e7]">
@@ -528,8 +528,8 @@ export default function Home() {
               Get in touch
             </p>
 
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#e2c77d] text-xl font-black tracking-[-0.08em] text-[#12352b] md:h-20 md:w-20 md:text-2xl">
-              GM
+            <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-[#f4f0e7] md:h-20 md:w-20">
+              <img src="/media/gucci-logo.jpg" alt="Gucci Mart" className="h-full w-full object-cover" />
             </div>
 
             <p className="mt-6 max-w-[560px] text-[28px] font-medium leading-tight tracking-[-0.03em] md:text-[42px]">
