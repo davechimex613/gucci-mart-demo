@@ -71,15 +71,39 @@ export default function Home() {
       <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
   <nav className="mx-auto max-w-7xl rounded-[24px] border border-white/20 bg-[#12352b]/95 px-3 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
     <div className="md:hidden">
-      <a href="#home" className="flex items-center">
-        <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
-          <img
-            src="/media/gucci-logo.jpg"
-            alt="Gucci Mart"
-            className="h-full w-full object-cover"
-          />
-        </span>
-      </a>
+      <div className="flex h-10 items-center">
+        <a href="#home" className="flex shrink-0 items-center">
+          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
+            <img
+              src="/media/gucci-logo.jpg"
+              alt="Gucci Mart"
+              className="h-full w-full object-cover"
+            />
+          </span>
+        </a>
+
+        <div className="flex flex-1 justify-center overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, x: 70 }}
+            animate={{ opacity: [0, 1, 1, 0], x: [70, 0, 0, -70] }}
+            transition={{
+              duration: 20,
+              times: [0, 0.08, 0.9, 1],
+              repeat: Infinity,
+              repeatDelay: 1,
+              ease: "easeInOut",
+            }}
+            className="text-center"
+          >
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-[#f4f0e7]">
+              GUCCI MART
+            </p>
+            <p className="mt-0.5 text-[8px] uppercase tracking-[0.2em] text-[#e2c77d]">
+              Oraifite
+            </p>
+          </motion.div>
+        </div>
+      </div>
 
       <div className="mt-3 flex w-full items-center justify-between border-t border-white/10 pt-3">
         {navItems.map((item) => (
@@ -129,9 +153,7 @@ export default function Home() {
         onClick={openWhatsApp}
         className="flex shrink-0 items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994]"
       >
-        <MessageCircle size={15} />
-        WhatsApp
-      </button>
+        <MessageCircle size={15} />Order Now</button>
     </div>
   </nav>
 </header>
@@ -161,7 +183,7 @@ export default function Home() {
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-[#e2c77d]" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#e2c77d]">
-                Oraifite • Anambra
+                Oraifite Ã¢â‚¬Â¢ Anambra
               </span>
             </div>
 
@@ -355,9 +377,7 @@ export default function Home() {
                 onClick={openWhatsApp}
                 className="flex items-center gap-3 rounded-full bg-[#12352b] px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#f4f0e7] transition hover:bg-[#1b4438]"
               >
-                <MessageCircle size={15} />
-                WhatsApp Us
-              </button>
+                <MessageCircle size={15} />Order Now</button>
 
               <a
                 href="https://maps.app.goo.gl/zAzuaBtu3bKHXpwm7"
@@ -464,9 +484,7 @@ export default function Home() {
                   onClick={openWhatsApp}
                   className="flex items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[#12352b]"
                 >
-                  <MessageCircle size={14} />
-                  WhatsApp
-                </button>
+                  <MessageCircle size={14} />Order Now</button>
 
                 <a
                   href="https://maps.app.goo.gl/zAzuaBtu3bKHXpwm7"
@@ -671,9 +689,7 @@ export default function Home() {
               rel="noreferrer"
               className="mt-4 flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-[9px] uppercase tracking-[0.15em] text-white/60 transition hover:border-[#e2c77d]/50 hover:text-[#e2c77d]"
             >
-              <MessageCircle size={13} />
-              WhatsApp
-            </a>
+              <MessageCircle size={13} />Order Now</a>
           </div>
 
         </div>
@@ -681,7 +697,7 @@ export default function Home() {
         {/* COPYRIGHT */}
         <div className="border-t border-white/10 px-6 py-5 md:px-8">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 text-[9px] uppercase tracking-[0.15em] text-white/30 sm:flex-row sm:items-center sm:justify-between">
-            <span>© {new Date().getFullYear()} Gucci Mart</span>
+            <span>Ã‚Â© {new Date().getFullYear()} Gucci Mart</span>
             <span>Oraifite, Anambra State</span>
           </div>
         </div>
