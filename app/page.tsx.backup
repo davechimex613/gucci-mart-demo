@@ -1,11 +1,7 @@
 "use client";
 
-import ProductRail from "@/components/shop/ProductRail";
-import { photos } from "@/data/gallery";
 import { useEffect, useState } from "react";
-
 import { AnimatePresence, motion } from "motion/react";
-
 import {
   ArrowRight,
   ChevronLeft,
@@ -15,6 +11,20 @@ import {
   MessageCircle,
   X,
 } from "lucide-react";
+
+const photos = [
+  "/media/gucci-10.jpg",
+  "/media/gucci-8.jpg",
+  "/media/gucci-9.jpg",
+  "/media/gucci-license.jpg",
+  "/media/unnamed(10).jpg",
+  "/media/unnamed(13).jpg",
+  "/media/unnamed(2).jpg",
+  "/media/unnamed(4).jpg",
+  "/media/unnamed(5).jpg",
+  "/media/unnamed(6).jpg",
+  "/media/unnamed(7).jpg",
+];
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -68,73 +78,73 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f4f0e7] text-[#12352b]">
       {/* NAVIGATION */}
-      <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
-  <nav className="mx-auto max-w-7xl rounded-[24px] border border-white/20 bg-[#12352b]/95 px-3 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
-    <div className="md:hidden">
-      <a href="#home" className="flex items-center">
-        <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
-          <img
-            src="/media/gucci-logo.jpg"
-            alt="Gucci Mart"
-            className="h-full w-full object-cover"
-          />
-        </span>
-      </a>
-
-      <div className="mt-3 flex w-full items-center justify-between border-t border-white/10 pt-3">
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className="shrink-0 text-[9px] font-semibold uppercase tracking-[0.06em] text-white/75 transition hover:text-[#e2c77d]"
-          >
-            {item.label}
+      <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-[24px] border border-white/20 bg-[#12352b]/95 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
+          <a href="#home" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
+              <img src="/media/gucci-logo.jpg" alt="Gucci Mart" className="h-full w-full object-cover" />
+            </span>
+            <div className="hidden sm:block">
+              <p className="text-sm font-semibold tracking-[0.18em] text-[#f4f0e7]">
+                GUCCI MART
+              </p>
+              <p className="text-[9px] uppercase tracking-[0.2em] text-[#e2c77d]">
+                Oraifite
+              </p>
+            </div>
           </a>
-        ))}
-      </div>
-    </div>
-    <div className="hidden items-center gap-6 md:flex">
-      <a href="#home" className="flex shrink-0 items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
-          <img
-            src="/media/gucci-logo.jpg"
-            alt="Gucci Mart"
-            className="h-full w-full object-cover"
-          />
-        </span>
 
-        <div>
-          <p className="text-sm font-semibold tracking-[0.18em] text-[#f4f0e7]">
-            GUCCI MART
-          </p>
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#e2c77d]">
-            Oraifite
-          </p>
-        </div>
-      </a>
+          <div className="mt-3 flex w-full items-center justify-between border-t border-white/10 pt-3 md:mt-0 md:w-auto md:justify-end md:gap-7 md:border-0 md:pt-0">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/75 transition hover:text-[#e2c77d]"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
 
-      <div className="flex flex-1 items-center justify-center gap-7">
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 transition hover:text-[#e2c77d]"
+          <button
+            onClick={openWhatsApp}
+            className="hidden items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994] sm:flex"
           >
-            {item.label}
-          </a>
-        ))}
-      </div>
+            <MessageCircle size={15} />
+            WhatsApp
+          </button>
+        </nav>
 
-      <button
-        onClick={openWhatsApp}
-        className="flex shrink-0 items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994]"
-      >
-        <MessageCircle size={15} />
-        WhatsApp
-      </button>
-    </div>
-  </nav>
-</header>
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl border border-white/20 bg-[#12352b]/98 p-3 shadow-2xl md:hidden"
+            >
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded-2xl px-4 py-3 text-xs uppercase tracking-[0.15em] text-white/80 transition hover:bg-white/10 hover:text-[#e2c77d]"
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              <button
+                onClick={openWhatsApp}
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#e2c77d] px-4 py-3 text-xs font-bold uppercase tracking-[0.15em] text-[#12352b]"
+              >
+                <MessageCircle size={15} />
+                WhatsApp
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
 
       {/* HERO */}
       <section id="home" className="relative flex min-h-[92svh] items-end overflow-hidden bg-[#12352b]">
@@ -192,9 +202,9 @@ export default function Home() {
 
                 <button
                   onClick={openWhatsApp}
-                  className="flex items-center gap-3 rounded-full border border-[#e2c77d]/40 bg-[#12352b]/80 px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#f4f0e7] shadow-lg backdrop-blur-md transition hover:border-[#e2c77d]/70 hover:bg-[#12352b]"
+                  className="flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-md transition hover:bg-white/20"
                 >
-                  <MessageCircle size={15} className="text-[#e2c77d]" />
+                  <MessageCircle size={15} />
                   Chat With Us
                 </button>
               </div>
@@ -271,44 +281,49 @@ export default function Home() {
       </section>
 
       {/* STORE */}
-      <section
-        id="store"
-        className="overflow-hidden bg-[#f4f0e7] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
-      >
+      <section id="store" className="bg-[#12352b] px-5 py-20 text-[#f4f0e7] sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-[#a18b55]">
-                Shop Gucci Mart
+              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e2c77d]">
+                Inside Gucci Mart
               </p>
-
-              <h2 className="max-w-2xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-[#12352b] sm:text-6xl">
-                Everyday things.
+              <h2 className="max-w-2xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl">
+                Come in.
                 <br />
-                <span className="text-[#12352b]/45">One easy stop.</span>
+                Find what you need.
               </h2>
-
-              <p className="mt-5 max-w-xl text-sm leading-7 text-[#12352b]/55">
-                From breakfast essentials to snacks, drinks and everyday
-                household needs, find the things you reach for most.
-              </p>
-            </div>
-
-            <div className="hidden pb-1 text-right sm:block">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#12352b]/35">
-                30 essentials
-              </p>
-              <p className="mt-1 text-xs text-[#12352b]/40">
-                Scroll to explore
-              </p>
             </div>
           </div>
 
-          <div className="mt-12">
-            <ProductRail />
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {photos.slice(0, 8).map((photo, index) => (
+              <motion.button
+                key={photo}
+                onClick={() => setSelectedPhoto(index)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: Math.min(index * 0.04, 0.25) }}
+                className={`group relative overflow-hidden rounded-2xl bg-[#1b4438] text-left ${
+                  index === 0 || index === 5 ? "aspect-[4/5]" : "aspect-square"
+                }`}
+              >
+                <img
+                  src={photo}
+                  alt={`Gucci Mart store view ${index + 1}`}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
+                <span className="absolute bottom-4 left-4 text-[9px] uppercase tracking-[0.18em] text-white/70">
+                  View {String(index + 1).padStart(2, "0")}
+                </span>
+              </motion.button>
+            ))}
           </div>
         </div>
       </section>
+
       {/* FEATURE */}
       <section className="overflow-hidden bg-[#e6dfcf] px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
@@ -374,49 +389,49 @@ export default function Home() {
       </section>
 
       {/* GALLERY */}
-      <section
-        id="gallery"
-        className="overflow-hidden bg-[#f4f0e7] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
-      >
+      <section id="gallery" className="bg-[#f4f0e7] px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#12352b] px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-            <div className="relative z-10 max-w-2xl">
-              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e2c77d]">
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-[#a18b55]">
                 Gallery
               </p>
-
-              <h2 className="text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-[#f4f0e7] sm:text-6xl">
+              <h2 className="text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
                 A closer look.
               </h2>
-
-              <p className="mt-5 max-w-lg text-sm leading-7 text-[#f4f0e7]/55">
-                Take a look inside Gucci Mart, from the shelves and aisles
-                to the details that make the store feel like home.
-              </p>
-
-              <a
-                href="/gallery"
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#e2c77d] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#12352b] transition hover:bg-[#f0d995]"
-              >
-                View more photos
-                <ArrowRight size={14} />
-              </a>
             </div>
 
-            <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full border border-[#e2c77d]/20 sm:h-96 sm:w-96" />
-            <div className="pointer-events-none absolute -bottom-32 right-10 h-64 w-64 rounded-full border border-white/5" />
+            <span className="hidden text-[10px] uppercase tracking-[0.2em] text-[#12352b]/40 sm:block">
+              11 photographs
+            </span>
+          </div>
 
-            <div className="absolute bottom-6 right-6 hidden text-right sm:block">
-              <p className="text-3xl font-semibold tracking-[-0.04em] text-[#f4f0e7]/15">
-                {photos.length}
-              </p>
-              <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#f4f0e7]/25">
-                photographs
-              </p>
-            </div>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+            {photos.slice(8).map((photo, offset) => {
+              const index = offset + 8;
+
+              return (
+                <motion.button
+                  key={photo}
+                  onClick={() => setSelectedPhoto(index)}
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="group relative aspect-square overflow-hidden rounded-2xl"
+                >
+                  <img
+                    src={photo}
+                    alt={`Gucci Mart gallery ${index + 1}`}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-[#12352b]/0 transition group-hover:bg-[#12352b]/20" />
+                </motion.button>
+              );
+            })}
           </div>
         </div>
       </section>
+
       {/* CONTACT */}
       <section id="contact" className="bg-[#12352b] px-5 py-20 text-[#f4f0e7] sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
