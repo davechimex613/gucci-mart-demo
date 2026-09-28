@@ -67,7 +67,7 @@ export default function ProductRail() {
 
       <div
         ref={railRef}
-        className="flex gap-4 overflow-x-auto pb-6 pr-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-3.5 overflow-x-auto pb-6 pr-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {products.map((product) => (
           <ProductCard
@@ -93,3 +93,4 @@ export default function ProductRail() {
     </div>
   );
 }
+

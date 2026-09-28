@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -7,7 +7,9 @@ import { photos } from "@/data/gallery";
 
 export default function GalleryPage() {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);`n  const [lightboxOpen, setLightboxOpen] = useState(false);`n  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [direction, setDirection] = useState(1);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const next = () => {
     setDirection(1);
@@ -76,7 +78,8 @@ export default function GalleryPage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: direction * -35 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="absolute inset-0 h-full w-full cursor-zoom-in object-cover"`n                  onClick={() => setLightboxOpen(true)}
+                  className="absolute inset-0 h-full w-full cursor-zoom-in object-cover"
+                  onClick={() => setLightboxOpen(true)}
                 />
               </AnimatePresence>
 
