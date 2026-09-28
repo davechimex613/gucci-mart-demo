@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { photos } from "@/data/gallery";
 
 export default function GalleryPage() {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [direction, setDirection] = useState(1);`n  const [lightboxOpen, setLightboxOpen] = useState(false);`n  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const next = () => {
     setDirection(1);
@@ -76,7 +76,7 @@ export default function GalleryPage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: direction * -35 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full cursor-zoom-in object-cover"`n                  onClick={() => setLightboxOpen(true)}
                 />
               </AnimatePresence>
 
@@ -100,7 +100,7 @@ export default function GalleryPage() {
 
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between sm:bottom-7 sm:left-7 sm:right-7">
                 <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/65">
-                  Gucci Mart · Oraifite
+                  Gucci Mart &bull; Oraifite
                 </p>
 
                 <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#e2c77d]">
