@@ -78,73 +78,73 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f4f0e7] text-[#12352b]">
       {/* NAVIGATION */}
-      <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-[24px] border border-white/20 bg-[#12352b]/95 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
-          <a href="#home" className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
-              <img src="/media/gucci-logo.jpg" alt="Gucci Mart" className="h-full w-full object-cover" />
-            </span>
-            <div className="hidden sm:block">
-              <p className="text-sm font-semibold tracking-[0.18em] text-[#f4f0e7]">
-                GUCCI MART
-              </p>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-[#e2c77d]">
-                Oraifite
-              </p>
-            </div>
-          </a>
+      <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
+  <nav className="mx-auto max-w-7xl rounded-[24px] border border-white/20 bg-[#12352b]/95 px-3 py-3 shadow-2xl backdrop-blur-xl sm:px-6">
+    <div className="md:hidden">
+      <a href="#home" className="flex items-center">
+        <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
+          <img
+            src="/media/gucci-logo.jpg"
+            alt="Gucci Mart"
+            className="h-full w-full object-cover"
+          />
+        </span>
+      </a>
 
-          <div className="mt-3 flex w-full items-center justify-between border-t border-white/10 pt-3 md:mt-0 md:w-auto md:justify-end md:gap-7 md:border-0 md:pt-0">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/75 transition hover:text-[#e2c77d]"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <button
-            onClick={openWhatsApp}
-            className="hidden items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994] sm:flex"
+      <div className="mt-3 flex w-full items-center justify-between border-t border-white/10 pt-3">
+        {navItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="shrink-0 text-[9px] font-semibold uppercase tracking-[0.06em] text-white/75 transition hover:text-[#e2c77d]"
           >
-            <MessageCircle size={15} />
-            WhatsApp
-          </button>
-        </nav>
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+    <div className="hidden items-center gap-6 md:flex">
+      <a href="#home" className="flex shrink-0 items-center gap-3">
+        <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#e2c77d]/60 bg-[#f4f0e7]">
+          <img
+            src="/media/gucci-logo.jpg"
+            alt="Gucci Mart"
+            className="h-full w-full object-cover"
+          />
+        </span>
 
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl border border-white/20 bg-[#12352b]/98 p-3 shadow-2xl md:hidden"
-            >
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-2xl px-4 py-3 text-xs uppercase tracking-[0.15em] text-white/80 transition hover:bg-white/10 hover:text-[#e2c77d]"
-                >
-                  {item.label}
-                </a>
-              ))}
+        <div>
+          <p className="text-sm font-semibold tracking-[0.18em] text-[#f4f0e7]">
+            GUCCI MART
+          </p>
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#e2c77d]">
+            Oraifite
+          </p>
+        </div>
+      </a>
 
-              <button
-                onClick={openWhatsApp}
-                className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#e2c77d] px-4 py-3 text-xs font-bold uppercase tracking-[0.15em] text-[#12352b]"
-              >
-                <MessageCircle size={15} />
-                WhatsApp
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+      <div className="flex flex-1 items-center justify-center gap-7">
+        {navItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 transition hover:text-[#e2c77d]"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <button
+        onClick={openWhatsApp}
+        className="flex shrink-0 items-center gap-2 rounded-full bg-[#e2c77d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#12352b] transition hover:bg-[#f0d994]"
+      >
+        <MessageCircle size={15} />
+        WhatsApp
+      </button>
+    </div>
+  </nav>
+</header>
 
       {/* HERO */}
       <section id="home" className="relative flex min-h-[92svh] items-end overflow-hidden bg-[#12352b]">
@@ -202,9 +202,9 @@ export default function Home() {
 
                 <button
                   onClick={openWhatsApp}
-                  className="flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-md transition hover:bg-white/20"
+                  className="flex items-center gap-3 rounded-full border border-[#e2c77d]/40 bg-[#12352b]/80 px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#f4f0e7] shadow-lg backdrop-blur-md transition hover:border-[#e2c77d]/70 hover:bg-[#12352b]"
                 >
-                  <MessageCircle size={15} />
+                  <MessageCircle size={15} className="text-[#e2c77d]" />
                   Chat With Us
                 </button>
               </div>
@@ -296,30 +296,37 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {photos.slice(0, 8).map((photo, index) => (
-              <motion.button
-                key={photo}
-                onClick={() => setSelectedPhoto(index)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: Math.min(index * 0.04, 0.25) }}
-                className={`group relative overflow-hidden rounded-2xl bg-[#1b4438] text-left ${
-                  index === 0 || index === 5 ? "aspect-[4/5]" : "aspect-square"
-                }`}
-              >
-                <img
-                  src={photo}
-                  alt={`Gucci Mart store view ${index + 1}`}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
-                <span className="absolute bottom-4 left-4 text-[9px] uppercase tracking-[0.18em] text-white/70">
-                  View {String(index + 1).padStart(2, "0")}
-                </span>
-              </motion.button>
-            ))}
+          <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-12 lg:grid-rows-[260px_220px_180px]">
+            {photos.slice(0, 8).map((photo, index) => {
+              const layout =
+                index === 0
+                  ? "col-span-2 row-span-2 lg:col-span-6 lg:row-span-2"
+                  : index <= 4
+                    ? "lg:col-span-3"
+                    : "lg:col-span-4";
+
+              return (
+                <motion.button
+                  key={photo}
+                  onClick={() => setSelectedPhoto(index)}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: Math.min(index * 0.04, 0.25) }}
+                  className={`group relative min-h-[180px] overflow-hidden rounded-2xl bg-[#1b4438] text-left ${layout}`}
+                >
+                  <img
+                    src={photo}
+                    alt={`Gucci Mart store view ${index + 1}`}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
+                  <span className="absolute bottom-4 left-4 text-[9px] uppercase tracking-[0.18em] text-white/70">
+                    View {String(index + 1).padStart(2, "0")}
+                  </span>
+                </motion.button>
+              );
+            })}
           </div>
         </div>
       </section>
