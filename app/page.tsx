@@ -183,7 +183,7 @@ export default function Home() {
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-[#e2c77d]" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#e2c77d]">
-                Oraifite Ã¢â‚¬Â¢ Anambra
+                Oraifite &bull; Anambra
               </span>
             </div>
 
@@ -697,7 +697,7 @@ export default function Home() {
         {/* COPYRIGHT */}
         <div className="border-t border-white/10 px-6 py-5 md:px-8">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 text-[9px] uppercase tracking-[0.15em] text-white/30 sm:flex-row sm:items-center sm:justify-between">
-            <span>Ã‚Â© {new Date().getFullYear()} Gucci Mart</span>
+            <span>&copy; {new Date().getFullYear()} Gucci Mart</span>
             <span>Oraifite, Anambra State</span>
           </div>
         </div>
