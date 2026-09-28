@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import ProductRail from "@/components/shop/ProductRail";
 import { photos } from "@/data/gallery";
@@ -170,14 +170,14 @@ export default function Home() {
           <source src="/media/gucci-header.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-[#071b15]/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071b15] via-[#071b15]/30 to-transparent" />
+        <div className="absolute inset-0 bg-[#071b15]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071b15] via-[#071b15]/45 to-[#071b15]/10" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 pt-40 sm:px-8 sm:pb-16 lg:px-10 lg:pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 35 }}
+            initial={{ opacity: 0, y: 45 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-4xl"
           >
             <div className="mb-6 flex items-center gap-3">
@@ -187,7 +187,7 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="max-w-4xl text-[clamp(3.2rem,10vw,8rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-[#f7f2e8]">
+            <h1 className="max-w-4xl text-[clamp(3.4rem,10vw,8rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-[#f7f2e8]">
               Everything
               <br />
               <span className="text-[#e2c77d]">you need.</span>
@@ -217,7 +217,7 @@ export default function Home() {
                   className="flex items-center gap-3 rounded-full border border-[#e2c77d]/40 bg-[#12352b]/80 px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#f4f0e7] shadow-lg backdrop-blur-md transition hover:border-[#e2c77d]/70 hover:bg-[#12352b]"
                 >
                   <MessageCircle size={15} className="text-[#e2c77d]" />
-                  Chat With Us
+                  Order Now
                 </button>
               </div>
             </div>
@@ -765,3 +765,4 @@ export default function Home() {
     </main>
   );
 }
+
